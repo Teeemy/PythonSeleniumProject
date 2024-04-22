@@ -17,7 +17,7 @@ import pytest
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-
+from allure_commons.types import AttachmentType
 
 @pytest.mark.smoke
 @allure.title("Verify that Login is working on app_vwo website")

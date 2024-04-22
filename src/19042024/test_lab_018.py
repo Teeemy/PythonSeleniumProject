@@ -3,6 +3,7 @@ import pytest
 import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from allure_commons.types import AttachmentType
 
 
 @pytest.mark.smoke
@@ -15,7 +16,7 @@ def test_open_cura_website():
     make_appointment_btn = driver.find_element(By.PARTIAL_LINK_TEXT, "Appointment")
     make_appointment_btn.click()
 
-    #driver.attach(driver.get_screenshot_as_png().name="Screenshot")
+    allure.attach(driver.get_screenshot_as_png(), name="Login Screenshot", attachment_type=AttachmentType.PNG)
 
     print(driver.current_url)
 
@@ -30,7 +31,7 @@ def test_open_cura_website():
     submit_btn = driver.find_element(By.ID,"btn-login")
     submit_btn.click()
 
-   # allure.attach(driver.get_screenshot_as_png(), name="Login Screenshot", attachment_type=AttachmentType.PNG)
+    allure.attach(driver.get_screenshot_as_png(), name="Make Appointment Screenshot", attachment_type=AttachmentType.PNG)
 
     assert driver.current_url == "https://katalon-demo-cura.herokuapp.com/#appointment"
 
