@@ -4,12 +4,17 @@
 # //a[@id="btn-make-appointment"] it means find all the anchor tags where id is equal to make appointment.it will
 # return a unique element
 
-# xpath format are
+# xpath logic are
 # # //input[@id='login-username']
 # # //input[@name='username']
-# # //input[@class="text-input W(800%)"] - not recommended
+# # //input[@class="text-input W(100%)"] - not recommended
 # # //input[@type ="email"] not recommended
-# # //input[@data-qa="hocewoqisi"] - custom xpath
+# # //input[@data-qa="hocewoqisi"] - custom attribute. user self unique identifier
+# All these type of xpath are relative xpath
+# we have two types of xpath i.e relative and absolute xpath
+# // input is the tagName
+# Different types of html tag are -h1,p,input,a,form,img,video
+# audio,button,table,ul,li,tr,div,select,span
 
 
 import time
@@ -26,10 +31,10 @@ def test_vwologin():
     driver = webdriver.Chrome()
     driver.get("https://app.vwo.com")
 
-    username = driver.find_element(By.XPATH, "//input[@name='username']")
-    username.send_keys("admin")
+    make_appointment_btn = driver.find_element(By.XPATH,"//input[@name='username']")
+    make_appointment_btn.send_keys("admin")
 
-    password = driver.find_element(By.XPATH, "txt-password")
-    password.send_keys("ThisIsNotAPassword")
+    # password = driver.find_element(By.XPATH, "txt-password")
+    # password.send_keys("ThisIsNotAPassword")
 
     time.sleep(10)

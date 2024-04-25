@@ -45,7 +45,8 @@ def test_cura_website():
     allure.attach(driver.get_screenshot_as_png(), name="Make Appointment Screenshot",attachment_type=AttachmentType.PNG)
     verify_element = driver.find_element(By.XPATH,"//div/h2")
     assert verify_element.text == "Make Appointment"
-
+    select_facility_element= driver.find_element(By.ID,"facility")
+    select_facility_element.is_selected()
 
 
 
